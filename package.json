@@ -1,0 +1,54 @@
+{
+  "name": "turboio",
+  "version": "1.0.0",
+  "description": "Axios-like developer experience powered by modern high-performance internals.",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:logHeap": "vitest run --poolOptions.threads.execArgv=['--expose-gc'] --no-file-parallelism",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "bench": "npx tsx benchmarks/overhead.bench.ts"
+  },
+  "dependencies": {
+    "mitata": "^1.0.34",
+    "undici": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "axios": "^1.16.1",
+    "axios-mock-adapter": "^2.1.0",
+    "tinybench": "^2.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "http-client",
+    "undici",
+    "axios",
+    "fetch",
+    "performance",
+    "typescript"
+  ],
+  "license": "MIT"
+}

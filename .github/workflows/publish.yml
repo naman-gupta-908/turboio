@@ -1,0 +1,35 @@
+name: Continuous Delivery
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Secure NPM Publication
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Mandatory permission token container required for npm provenance verification
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Initialize Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Project Dependencies
+        run: npm ci
+
+      - name: Build Optimized Bundle Distribution
+        run: npm run build
+
+      - name: Secure Publish to NPM Registry
+        run: npm publish --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
