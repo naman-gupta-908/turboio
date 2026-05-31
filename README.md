@@ -131,7 +131,7 @@ Custom error classes implement robust runtime identity validation (`Symbol.hasIn
 ## 📦 Installation
 
 ```bash
-npm install turboio
+npm install @naman-gupta/turboio
 ```
 
 ---
@@ -141,7 +141,7 @@ npm install turboio
 ### Create a Client
 
 ```ts
-import turbo from 'turboio';
+import turbo from '@naman-gupta/turboio';
 
 const api = turbo.create({
   baseURL: 'https://api.yourdomain.local',
@@ -203,7 +203,7 @@ try {
 `turboio` supports asynchronous onion-style middleware.
 
 ```ts
-import turbo from 'turboio';
+import turbo from '@naman-gupta/turboio';
 
 const client = turbo.create();
 

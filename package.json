@@ -1,8 +1,7 @@
 {
-  "name": "turboio",
+  "name": "@naman-gupta/turboio",
   "version": "1.0.0",
-  "description": "Axios-like developer experience powered by modern high-performance internals.",
-  "main": "./dist/index.cjs",
+  "description": "Enterprise-grade, ultra-low-overhead HTTP client optimized for high-throughput Node.js environments.",  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
@@ -23,7 +22,7 @@
     "test:logHeap": "vitest run --poolOptions.threads.execArgv=['--expose-gc'] --no-file-parallelism",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "bench": "npx tsx benchmarks/overhead.bench.ts"
+    "bench": "npx tsx benchmarks/comparison.bench.ts"
   },
   "dependencies": {
     "mitata": "^1.0.34",
